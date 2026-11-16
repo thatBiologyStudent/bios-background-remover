@@ -19,7 +19,7 @@ A client-side React + Tailwind CSS tool for removing solid-color backgrounds fro
 ## Quick Start (Windows)
 
 1. Double-click **`Install Dependencies.bat`** (automatically installs Node.js LTS via `winget` if needed, then runs `npm install`).
-2. Double-click **`Start PureEraser.bat`** to start the local server and open the app in your browser.
+2. Double-click **`Start Background Remover.bat`** to start the local server and open the app in your browser.
 
 ## Manual Setup
 
