@@ -484,6 +484,14 @@ export default function App() {
       {/* Left Sidebar */}
       <aside className="w-full lg:w-80 xl:w-96 shrink-0 bg-[#1e150f] border-b lg:border-b-0 lg:border-r border-[#342419] flex flex-col justify-between p-6 gap-5 lg:overflow-y-auto">
         <div className="flex flex-col gap-6">
+          {BACK_URL && (
+            <a
+              href={BACK_URL}
+              className="-mb-3 self-start rounded-full border border-amber-600/40 px-3 py-1.5 text-xs font-semibold text-amber-300 hover:border-amber-400 hover:text-amber-200"
+            >
+              &larr; {BACK_LABEL}
+            </a>
+          )}
           {/* App Header */}
           <header className="flex items-center gap-3 pb-5 border-b border-[#342419]">
             <div className="w-10 h-10 rounded-xl bg-amber-700/20 border border-amber-600/40 flex items-center justify-center shadow-inner">
@@ -493,14 +501,6 @@ export default function App() {
               <h1 className="text-xl font-bold tracking-tight text-white">Bios Background Remover</h1>
               <p className="text-xs text-stone-400">Solid Background Remover</p>
             </div>
-            {BACK_URL && (
-              <a
-                href={BACK_URL}
-                className="ml-auto shrink-0 self-start rounded-full border border-amber-600/40 px-3 py-1.5 text-xs font-semibold text-amber-300 hover:border-amber-400 hover:text-amber-200"
-              >
-                &larr; {BACK_LABEL}
-              </a>
-            )}
           </header>
 
           {/* TARGET COLOR Section */}
