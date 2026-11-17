@@ -1,5 +1,7 @@
 # Bios Background Remover
 
+<a href="https://thatbio.vercel.app/tools/background-remover/"><img src="https://img.shields.io/badge/Try_here-%E2%86%92-b8742a?style=for-the-badge" alt="Try here"></a>
+
 A client-side React + Tailwind CSS tool for removing solid-color backgrounds from portraits and illustrations with fine-tuned tolerance, edge choke, defringe halo cleanup, edge feathering, and independent source/preview zoom.
 
 ![Bios Background Remover Screenshot](screenshots/app-preview.png)
