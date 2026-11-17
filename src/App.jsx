@@ -15,6 +15,11 @@ import {
   Plus,
 } from 'lucide-react';
 
+// Optional "back to" link for when the tool is hosted inside another site.
+// Set at build time: VITE_BACK_URL and VITE_BACK_LABEL. Nothing is shown when unset.
+const BACK_URL = import.meta.env.VITE_BACK_URL || '';
+const BACK_LABEL = import.meta.env.VITE_BACK_LABEL || 'Back';
+
 const DEFAULT_TOLERANCE = 35;
 const DEFAULT_FEATHER = 0;
 const DEFAULT_EDGE_CHOKE = 0;
@@ -327,21 +332,25 @@ export default function App() {
     const fileName = `${imageName}-nobg.png`;
     const dataUrl = previewCanvas.toDataURL('image/png');
 
-    try {
-      const response = await fetch('/api/save-png', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ filename: fileName, dataUrl }),
-      });
+    // The native Windows Save As endpoint only exists on the local dev server (start .bat).
+    // When hosted, skip it so the image never leaves the browser.
+    if (import.meta.env.DEV) {
+      try {
+        const response = await fetch('/api/save-png', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ filename: fileName, dataUrl }),
+        });
 
-      if (response.ok) {
-        const result = await response.json();
-        if (result?.status === 'saved' || result?.status === 'cancelled') {
-          return;
+        if (response.ok) {
+          const result = await response.json();
+          if (result?.status === 'saved' || result?.status === 'cancelled') {
+            return;
+          }
         }
+      } catch {
+        // Fall back to browser Save As / download if local endpoint is unavailable
       }
-    } catch {
-      // Fall back to browser Save As / download if local endpoint is unavailable
     }
 
     if (typeof window.showSaveFilePicker === 'function') {
@@ -484,6 +493,14 @@ export default function App() {
               <h1 className="text-xl font-bold tracking-tight text-white">Bios Background Remover</h1>
               <p className="text-xs text-stone-400">Solid Background Remover</p>
             </div>
+            {BACK_URL && (
+              <a
+                href={BACK_URL}
+                className="ml-auto shrink-0 self-start rounded-full border border-amber-600/40 px-3 py-1.5 text-xs font-semibold text-amber-300 hover:border-amber-400 hover:text-amber-200"
+              >
+                &larr; {BACK_LABEL}
+              </a>
+            )}
           </header>
 
           {/* TARGET COLOR Section */}

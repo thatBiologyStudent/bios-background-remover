@@ -106,5 +106,7 @@ function nativeSaveAsPlugin() {
 }
 
 export default defineConfig({
+  // Serve from a sub-path when hosted inside another site, e.g. APP_BASE=/tools/background-remover/ (default: site root).
+  base: process.env.APP_BASE || '/',
   plugins: [react(), tailwindcss(), nativeSaveAsPlugin()],
 });
