@@ -8,7 +8,7 @@ A client-side React + Tailwind CSS tool for removing solid-color backgrounds fro
 
 ## Features
 
-- **100% Client-Side Processing**: Uses the HTML5 Canvas API—your images never leave your computer.
+- **100% Client-Side Processing**: Uses the HTML5 Canvas API—your images never leave your computer. (The hosted version counts anonymous page views with Vercel Web Analytics, without cookies; running it locally doesn't.)
 - **Auto-Sample & Eyedropper**: Automatically samples the top-left pixel `(0, 0)` on upload, with a **Pick Color** eyedropper for sampling any pixel.
 - **Fine-Grained Controls**:
   - **Tolerance (`0–255`, `0.5` step)**: Euclidean RGB color distance matching.
