@@ -20,5 +20,5 @@
     "tailwindcss": "^4.0.0",
     "vite": "^6.0.0"
   },
-  "license": "CC-BY-SA-4.0"
+  "license": "AGPL-3.0-only"
 }
