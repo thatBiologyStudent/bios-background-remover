@@ -4,3 +4,4 @@ package-lock.zip
 *.log
 .DS_Store
 Thumbs.db
+.app-version

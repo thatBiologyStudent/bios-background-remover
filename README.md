@@ -23,6 +23,8 @@ A client-side React + Tailwind CSS tool for removing solid-color backgrounds fro
 1. Double-click **`Install Dependencies.bat`** (automatically installs Node.js LTS via `winget` if needed, then runs `npm install`).
 2. Double-click **`Start Background Remover.bat`** to start the local server and open the app in your browser.
 
+**Updates:** each time you start it, the start script checks GitHub for a newer version and asks *Update now? [Y,N]* (it says yes on its own after 15 seconds). A cloned copy is updated with `git pull` (skipped if you changed files yourself); a downloaded zip copy gets the latest files from GitHub copied over it. Your images are never touched. To skip the check, set the environment variable `NO_UPDATE_CHECK=1`. Copies from before this updater existed need one manual update first.
+
 ## Manual Setup
 
 ```bash
